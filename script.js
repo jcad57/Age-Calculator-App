@@ -82,14 +82,18 @@ function calcAge(day, month, year) {
       dayOutput = 1 * (day - currentDay);
     }
     if (currentMonth === 2 && day > currentDay) {
-      dayOutput = 1 * (day - 28);
+      dayOutput = 28 - day;
     } else {
       dayOutput = currentDay - day;
     }
     if (currentMonth === 4 || currentMonth === 11) {
-      dayOutput = 1 * (day - 30);
+      dayOutput = 30 - day;
     } else {
-      dayOutput = currentDay - day;
+      if (day < currentDay) {
+        dayOutput = currentDay - day;
+      } else {
+        dayOutput = 31 - day;
+      }
     }
   }
   // Output results to DOM
@@ -130,9 +134,9 @@ submitButton.addEventListener("click", function () {
     console.log(
       `Valid date entered (MM/DD/YYYY): ${monthInput}/${dayInput}/${yearInput}`
     );
-    document.querySelector(".input--day").value = "";
-    document.querySelector(".input--month").value = "";
-    document.querySelector(".input--year").value = "";
+    // document.querySelector(".input--day").value = "";
+    // document.querySelector(".input--month").value = "";
+    // document.querySelector(".input--year").value = "";
     calcAge(dayInput, monthInput, yearInput);
   }
 });

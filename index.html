@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>Frontend Mentor | Age calculator app</title>
+    <title>Frontend Mentor | Age calculator app SOLUTION</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
@@ -31,69 +31,81 @@
     </style>
   </head>
   <body>
+    <a href="https://www.codewars.com/users/jcad57" target="_blank"
+      ><img src="avatar.jpg" class="avatar"
+    /></a>
     <div class="container">
-      <div class="card">
-        <div class="error hidden"><p>Invalid Input</p></div>
-        <div class="input--area">
-          <div>
-            <p>Day</p>
-            <input
-              type="text"
-              placeholder="DD"
-              class="input input--day"
-              maxlength="2"
-            />
+      <section id="navigation">
+        <nav>
+          <div class="nav-container">
+            <h1>AgeCalculator.<span class="accent">App</span></h1>
           </div>
-          <div>
-            <p>Month</p>
-            <input
-              type="text"
-              placeholder="MM"
-              class="input input--month"
-              maxlength="2"
-            />
-          </div>
-          <div>
-            <p>Year</p>
-            <input
-              type="text"
-              placeholder="YYYY"
-              class="input input--year"
-              maxlength="4"
-            />
-          </div>
-        </div>
+        </nav>
+      </section>
 
-        <img src="icon-arrow.svg" alt="" class="button" />
-        <div class="output--area">
-          <div class="output--style">
-            <span class="output--years">--</span> years
+      <section id="application">
+        <main>
+          <div class="card">
+            <div class="error hidden"><p>Invalid Input</p></div>
+            <div class="input--area">
+              <div>
+                <p>Day</p>
+                <input
+                  type="text"
+                  placeholder="DD"
+                  class="input input--day"
+                  maxlength="2"
+                />
+              </div>
+              <div>
+                <p>Month</p>
+                <input
+                  type="text"
+                  placeholder="MM"
+                  class="input input--month"
+                  maxlength="2"
+                />
+              </div>
+              <div>
+                <p>Year</p>
+                <input
+                  type="text"
+                  placeholder="YYYY"
+                  class="input input--year"
+                  maxlength="4"
+                />
+              </div>
+            </div>
+            <img src="icon-arrow.svg" alt="" class="button" />
+            <div class="output--area">
+              <div class="output--style">
+                <span class="output--years">--</span> years
+              </div>
+              <div class="output--style">
+                <span class="output--months">--</span> months
+              </div>
+              <div class="output--style">
+                <span class="output--days">--</span> days
+              </div>
+            </div>
           </div>
-          <div class="output--style">
-            <span class="output--months">--</span> months
+        </main>
+      </section>
+
+      <section id="footer" class="footer">
+        <footer class="attribution">
+          <div class="div">
+            Challenge by
+            <a
+              href="https://www.frontendmentor.io?ref=challenge"
+              target="_blank"
+              >Frontend Mentor</a
+            >. Coded by
+            <a href="https://www.frontendmentor.io/profile/jcad57">Johnny D</a>.
           </div>
-          <div class="output--style">
-            <span class="output--days">--</span> days
-          </div>
-        </div>
-      </div>
-      <!-- <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by
-        <a href="https://www.frontendmentor.io/profile/jcad57">Johnny D</a>.
-      </div> -->
+        </footer>
+      </section>
     </div>
-    <footer class="attribution footer sticky">
-      <div class="div">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by
-        <a href="https://www.frontendmentor.io/profile/jcad57">Johnny D</a>.
-      </div>
-    </footer>
     <script src="script.js"></script>
   </body>
 </html>

@@ -33,26 +33,40 @@
     --offBlack: hsl(0, 0%, 8%);
     --lightPurp: rgb(134,76,255);
 }
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
 
 body{
     background-color: var(--offWhite);
 }
+.avatar {
+    display: none;
+    
+}
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    width: 100vw;
+}
 
 .container {
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 95svh;
+    justify-content: space-between;
+    min-height: 100svh;
 }
 
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 95%;
-  
     padding: 3rem 1rem;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
@@ -62,6 +76,10 @@ body{
     margin-bottom: 1rem;
     box-shadow: 7px 7px var(--lightPurp);
 }
+ .accent{
+    color: var(--lightPurp);
+    font-style: italic;
+ }
 
 .input--area{
     display: flex;
@@ -85,9 +103,9 @@ body{
 
 .input {
     display: block;
-    padding: .75rem;
-    font-size: 1.5rem;
-    width: 6rem;
+    padding: .5rem .75rem;
+    font-size: 1.2rem;
+    width: 5rem;
     font-weight: 800;
     border-radius: .5rem;
     border: 1px solid var(--lightGrey);
@@ -145,10 +163,7 @@ body{
     color: var(--lightPurp);
 }
 
-footer{
-    position: absolute;
-    bottom: 0;
-    /* top: 0; */
+.footer{
     width: 100%;
     background-color: var(--lightPurp);
     padding: .75rem 0;
@@ -158,17 +173,47 @@ footer .div a{
     color: white;
 }
 
-@media (min-width: 500px){
+footer .div a:hover{
+    color: rgb(255, 255, 104);
+}
+
+@media (min-width: 400px){
+    .card{
+        width: 90vw;
+    }
+    .input--area{
+        justify-content: start;
+    }
+    .input {
+        width: 7rem;
+    }
+    .input--area div{
+        margin-right: 1.5rem;
+    }
+}
+
+@media (min-width: 660px){
+    
+    .avatar{
+        display: block;
+        position: absolute;
+        max-width: 40px;  
+        margin: .8rem 1rem; 
+        border-radius: 100vw;
+    }
+
     .container{
-        max-width: 650px;
-        height: 95svh;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .card {
-        justify-content: start;
+        justify-content: center;
         align-items: flex-end;
         padding-left: 2.5rem;
         padding-right: 2.5rem;
+        width: 600px;
+        max-width: 600px;
     }
 
     .input--area{
@@ -191,3 +236,5 @@ footer .div a{
         line-height: 1.1;
     }
 }
+
+
