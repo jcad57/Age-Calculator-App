@@ -57,51 +57,42 @@ function detectTyping() {
 }
 
 // Calculate the age!
-function calcAge(day, month, year) {
-  // Get the current date
+function calcAge(birthDay, birthMonth, birthYear) {
+  // Get current date & set variables
   const date = new Date();
-  const currentDay = date.getDate();
-  const currentMonth = date.getMonth() + 1;
   const currentYear = date.getFullYear();
-  // Process
-  let yearOutput = 0;
-  let monthOutput = 0;
-  let dayOutput = 0;
-  // Calc month and year
-  if (month > currentMonth) {
-    monthOutput = currentMonth + (12 - month);
-    yearOutput = currentYear - year - 1;
+  const currentMonth = date.getMonth() + 1; // 0 index base
+  const currentDay = date.getDate();
+  const dateOfBirth = `${birthYear}-${birthMonth}-${birthDay}`;
+
+  let monthOut, dayOut;
+  let yearOut = currentYear - birthYear;
+
+  if (currentMonth >= birthMonth) {
+    monthOut = currentMonth - birthMonth;
   } else {
-    yearOutput = currentYear - year;
+    yearOut--;
+    monthOut = 12 + currentMonth - birthMonth;
   }
-  // Calc day
-  if (!(currentMonth === 2 || currentMonth === 4 || currentMonth === 11)) {
-    if (day <= currentDay) {
-      dayOutput = currentDay - day;
-    } else {
-      dayOutput = 1 * (day - currentDay);
-    }
-    if (currentMonth === 2 && day > currentDay) {
-      dayOutput = 28 - day;
-    } else {
-      dayOutput = currentDay - day;
-    }
-    if (currentMonth === 4 || currentMonth === 11) {
-      dayOutput = 30 - day;
-    } else {
-      if (day < currentDay) {
-        dayOutput = currentDay - day;
-      } else {
-        dayOutput = 31 - day;
-      }
+
+  if (currentDay >= birthDay) {
+    dayOut = currentDay - birthDay;
+  } else {
+    monthOut--;
+    dayOut = 31 + currentDay - birthDay;
+
+    if (ageOut < 0) {
+      ageOut = 11;
+      yearOut--;
     }
   }
+
   // Output results to DOM
-  document.querySelector(".output--years").textContent = yearOutput;
-  document.querySelector(".output--days").textContent = dayOutput;
-  document.querySelector(".output--months").textContent = monthOutput;
-  console.log(`${yearOutput} years, ${monthOutput} months, ${dayOutput} days`);
-  console.log(typeof yearOutput, typeof monthOutput, typeof dayOutput);
+  document.querySelector(".output--years").textContent = yearOut;
+  document.querySelector(".output--days").textContent = dayOut;
+  document.querySelector(".output--months").textContent = monthOut;
+  console.log(`${yearOut} years, ${monthOut} months, ${dayOut} days`);
+  console.log(typeof yearOut, typeof monthOut, typeof dayOut);
 }
 // Detect submission and process accordingly
 submitButton.addEventListener("click", function () {
@@ -134,22 +125,7 @@ submitButton.addEventListener("click", function () {
     console.log(
       `Valid date entered (MM/DD/YYYY): ${monthInput}/${dayInput}/${yearInput}`
     );
-    // document.querySelector(".input--day").value = "";
-    // document.querySelector(".input--month").value = "";
-    // document.querySelector(".input--year").value = "";
     calcAge(dayInput, monthInput, yearInput);
   }
 });
 
-//   function calcAge(day, month, year) {
-//     const date = new Date();
-//     const yearCurrent = date.getFullYear();
-//     const monthCurrent = date.getMonth();
-//     const dayCurrent = date.getDate();
-//     if (monthCurrent < )
-//     const yearOutput = yearCurrent - year;
-//     return yearOutput;
-//   }
-//   // Validate Input and process
-
-// });
